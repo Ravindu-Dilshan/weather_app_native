@@ -38,7 +38,7 @@ export default function App() {
     console.log(error);
     alert(error.message);
   };
-  
+  /*GET DATA FROM LAT AND LONG*/
   async function load() {
     try {
       let { status } = await Location.requestPermissionsAsync();
