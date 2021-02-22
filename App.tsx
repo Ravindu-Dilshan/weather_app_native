@@ -7,6 +7,7 @@ import Weather from "./components/weather.comp";
 import "./font.css";
 import * as Location from "expo-location";
 const api = {
+  /*GET API KEY*/
   key: require('./data.json').key,
   url: "https://api.openweathermap.org/data/2.5/",
 };
