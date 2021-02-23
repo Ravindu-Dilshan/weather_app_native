@@ -1,14 +1,14 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import Input from "./components/Input.comp";
 import Error from "./components/Error.comp";
-import Weather from "./components/weather.comp";
-import "./font.css";
+import Weather from "./components/Weather.comp";
 import * as Location from "expo-location";
+import { useFonts, MarcellusSC_400Regular } from '@expo-google-fonts/marcellus-sc';
+
 const api = {
   /*GET API KEY*/
-  key: require('./data.json').key,
+  key: require('./assets/data.json').key,
   url: "https://api.openweathermap.org/data/2.5/",
 };
 
@@ -17,10 +17,14 @@ export default function App() {
   const [weather, setWeather] = useState<any>({});
   const [location, setlocation] = useState<boolean>(false);
 
+  let [fontsLoaded] = useFonts({
+    MarcellusSC_400Regular,
+  });
+  
   useEffect(() => {
     if (location != true) {
-      navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
-      //load();
+      //navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
+      load();
       setlocation(true);
     }
   }, []);
@@ -65,7 +69,6 @@ export default function App() {
         });
     }
   };
-
   return (
     <View style={styles.container}>
       <ImageBackground

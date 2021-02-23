@@ -7,7 +7,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-data.json
+assets/data.json
 web-build/
 
 # macOS

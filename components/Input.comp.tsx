@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 
 interface Props {
   setQuery?:any,
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     width:'100%',
   },
   input: {
-    fontFamily: "Marcellus",
+    fontFamily: "MarcellusSC_400Regular",
     backgroundColor:'rgba(104,97,97,.22)',
     borderRadius:10,
     flex: 1,

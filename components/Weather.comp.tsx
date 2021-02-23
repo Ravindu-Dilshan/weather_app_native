@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
@@ -29,7 +28,8 @@ interface Props {
 export default function Weather(props: Props) {
   return (
     <>
-      <View style={styles.uppercontainer}>
+      <View style={styles.container}>
+        <Image source={getWeatherIcon(props.icon)} style={styles.image}></Image>
         <Text style={styles.city}>
           {props.city}, {props.country}
         </Text>
@@ -37,9 +37,6 @@ export default function Weather(props: Props) {
           {props.type}({props.desc})
         </Text>
         <Text style={styles.date}>{getDateString(props.time)}</Text>
-      </View>
-      <View style={styles.container}>
-        <Image source={getWeatherIcon(props.icon)} style={styles.image}></Image>
         <View style={styles.row}>
           <View style={styles.col}>
             <Text>
@@ -74,7 +71,11 @@ export default function Weather(props: Props) {
             </Text>
           </View>
           <View style={styles.col}>
-            <Text style={{ color: "white",fontFamily: "Marcellus",marginTop:2 }}>{props.temp} °C</Text>
+            <Text
+              style={{ color: "white", fontFamily: "MarcellusSC_400Regular", marginTop: 2 }}
+            >
+              {props.temp} °C
+            </Text>
             <Text style={styles.data2}>{props.wind} m/s</Text>
             <Text style={styles.data2}>{props.humid} %</Text>
             <Text style={styles.data2}>{props.pressure} hPa</Text>
@@ -107,33 +108,28 @@ export default function Weather(props: Props) {
 }
 
 const styles = StyleSheet.create({
-  uppercontainer: {
-    marginTop: 10,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign:'center',
-  },
-  city:{
+  city: {
     fontSize: 27,
-    color:'white',
-    fontWeight:'500',
-    fontFamily: "Marcellus",
+    color: "white",
+    fontWeight: "500",
+    fontFamily: "MarcellusSC_400Regular",
   },
-  date:{
-    fontFamily: "Marcellus",
+  date: {
+    fontFamily: "MarcellusSC_400Regular",
     fontSize: 17,
-    color:'white',
-    fontWeight:'500',
+    color: "white",
+    fontWeight: "500",
   },
-  desc:{
-    fontFamily: "Marcellus",
+  desc: {
+    fontFamily: "MarcellusSC_400Regular",
     fontSize: 15,
-    color:'white',
-    fontWeight:'500',
+    color: "white",
+    fontWeight: "500",
   },
   container: {
-    marginTop: 10,
+    padding:5,
+    paddingBottom:15,
+    marginTop: 45,
     borderRadius: 12,
     borderColor: "hsla(0,0%,85.1%,.22)",
     borderWidth: 1,
@@ -144,12 +140,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    marginRight:"-1rem",
+    marginRight: "-1rem",
     width: 80,
     height: 80,
-    alignSelf:"flex-end",
-    marginTop:"-2rem",
-    zIndex:999,
+    alignSelf: "flex-end",
+    marginTop: "-2rem",
+    zIndex: 999,
   },
   icon: {
     width: 25,
@@ -165,19 +161,20 @@ const styles = StyleSheet.create({
   data: {
     marginTop: 10,
     color: "white",
-    fontFamily: "Marcellus",
+    fontFamily: "MarcellusSC_400Regular",
   },
   data2: {
     marginTop: 22,
     color: "white",
-    fontFamily: "Marcellus",
+    fontFamily: "MarcellusSC_400Regular",
   },
   data3: {
     marginBottom: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: 6,
+    paddingRight: 6,
+    fontSize:13,
     color: "white",
-    fontFamily: "Marcellus",
+    fontFamily: "MarcellusSC_400Regular",
   },
 });
 
